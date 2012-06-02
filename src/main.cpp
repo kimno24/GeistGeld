@@ -702,7 +702,7 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     //int64 nSubsidy = 50 * COIN;
-    int64 nSubsidy = (GetArgIntxx(50,"-Subsidy") * COIN);
+    int64 nSubsidy = (GetArgIntxx(50,"-Subsidy"));
     nSubsidy = nSubsidy + (GetArgIntxx(0,"-Subsidy_small"));
     if (mapArgs.count("-custom_inflation"))
     {
@@ -710,7 +710,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
         if (nHeight > GetArgIntxx(INT_MAX,"-inflation_triger"))
         {
             printf("nHeight > inflation_triger detected \n");
-            nSubsidy = GetArgIntxx(0,"-post_Subsidy") * COIN;
+            nSubsidy = GetArgIntxx(0,"-post_Subsidy");
             nSubsidy = nSubsidy + (GetArgIntxx(0,"-post_Subsidy_small"));
             if (nHeight > GetArgIntxx(INT_MAX,"-inflation_trigerB"))
             {
